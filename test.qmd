@@ -1,0 +1,17 @@
+---
+bibliography: bib.bib
+---
+
+# the including quarto file
+
+{{< pagebreak >}}
+
+## Header 2
+
+here is some text here is an reference to @example_wikipedia
+
+{{< pagebreak >}}
+
+## Unterkapitel 2
+
+dsahdgdsaölgh

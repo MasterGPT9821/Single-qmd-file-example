@@ -1,0 +1,208 @@
+---
+title: "Titel"
+subtitle: "Untertitel"
+author:
+  - "Max Mustermann"
+  - "Maria Musterfrau"
+date: today
+lang: de
+format:
+  pdf:
+    documentclass: scrbook
+    keep-tex: true
+    toc: true
+    toc-depth: 3
+    lof: true
+    lot: true
+    number-sections: true
+    include-in-header:
+      - header_footer.tex
+    template-partials:
+      - "template/before-body.tex"
+      - "template/_titlepage.tex"
+fontsize: 11pt
+linestretch: 1.5
+geometry: left = 25mm, right = 25mm, top = 30mm, bottom = 30mm
+bibliography: bib.bib
+execute: 
+  echo: false
+  warning: false
+  message: false
+editor: visual
+---
+
+```{=tex}
+\addcontentsline{toc}{chapter}{\listfigurename} % Füge das Verzeichnis der Abbildungen zum Inhaltsverzeichnis hinzu
+\addcontentsline{toc}{chapter}{\listtablename} % Füge das Verzeichnis der Abbildungen zum Inhaltsverzeichnis hinzu
+```
+# Abstract {.unnumbered}
+
+Ab Kapitel @sec-quarto beginnt der Inhalt.
+
+# Quarto {#sec-quarto}
+
+## Introducing
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+# Running Code
+
+## first
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+## second
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+### spezification
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+If yo set `echo: false` in the `execute` in the yaml it is set generally....
+
+# Langer Satz
+
+Hier ist ein sehr langer Satz, der extrem viele Verschachtelungen hat - wie diese hier -, um zu zeigen, was passiert, wenn der Satz länger als eine Zeile ist.
+
+{{< include test.qmd >}}
+
+# Include a graphic
+
+@fig-LOGO zeigt das Logo.
+
+![Logo](logo.png){#fig-LOGO}
+
+# Verweis auf Literatur
+
+Mgl 1: @example_wikipedia sagt dies und das.
+
+Mgl 2: Es gilt dies und das [@example_wikipedia].
+
+# Make tables
+
+Einfache/individuelle Tabelle (@tbl-letters):
+
+| Col1 | Col2 | Col3 |
+|------|------|------|
+| A    | B    | C    |
+| E    | F    | G    |
+| A    | G    | G    |
+
+: My Caption {#tbl-letters}
+
+{{< pagebreak >}}
+
+kable-Tabelle wird in @tbl-example_table dargestellt.
+
+```{r}
+#| label: tbl-example_table
+#| tbl-cap: "table caption"
+
+library(knitr)
+
+# Create a data frame for the table
+data <- data.frame(
+  Col1 = c("1 1", "2 1", "3 1"),
+  Col2 = c("1 2", "2 2", "2 3"),
+  Col3 = c("1 3", "2 3", "3 3")
+)
+
+# Create the table with a caption
+kable(data)
+```
+
+{{< pagebreak >}}
+
+test
+
+{{< pagebreak >}}
+
+test
+
+{{< pagebreak >}}
+
+## test
+
+test
+
+# Formel
+
+Hier wird ein Formelbeispiel @eq-qdot gezeigt:
+
+$$
+\dot{Q} = \dot{m} \cdot c_w \cdot \Delta{T}
+$$ {#eq-qdot}
+
+# Literaturverzeichnis {.unnumbered}
+
+::: {#refs}
+:::
+
+```{=tex}
+\appendix
+\renewcommand{\thechapter}{\Alph{chapter}}
+\setcounter{chapter}{0}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+```
+# Anhang 1 {.appendix}
+
+```{=tex}
+\setcounter{page}{1}
+\renewcommand{\thepage}{\thechapter.\arabic{page}} % Seitenzahlformat ändern
+```
+## Unterhang {.appendix}
+
+| Col1 | Col2 | Col3 | Col4 |
+|------|------|------|------|
+| A    | B    | C    | D    |
+| E    | F    | G    | H    |
+| I    | J    | K    | L    |
+| M    | N    | O    | P    |
+| Q    | R    | S    | T    |
+| U    | V    | W    | X    |
+| Y    | Z    | \-   | \-   |
+
+: 1st Appendix table {#tbl-letters-full}
+
+{{< pagebreak >}}
+
+test
+
+{{< pagebreak >}}
+
+test
+
+# Anhang 2 {.appendix}
+
+\setcounter{page}{1}
+
+| Col1 | Col2 | Col3 | Col4 |
+|------|------|------|------|
+| A    | B    | C    | D    |
+| E    | F    | G    | H    |
+| I    | J    | K    | L    |
+| M    | N    | O    | P    |
+| Q    | R    | S    | T    |
+| U    | V    | W    | X    |
+| Y    | Z    | \-   | \-   |
+
+: 2nd Appendix table {#tbl-letters2-full}
+
+{{< pagebreak >}}
+
+test
+
+{{< pagebreak >}}
+
+test
