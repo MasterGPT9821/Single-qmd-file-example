@@ -16,8 +16,9 @@ format:
     lot: true
     number-sections: true
     include-in-header:
-      - header_footer.tex
+      - "header_footer.tex"
     template-partials:
+      - "template/doc-class.tex"
       - "template/before-body.tex"
       - "template/_titlepage.tex"
 fontsize: 11pt
@@ -31,10 +32,6 @@ execute:
 editor: visual
 ---
 
-```{=tex}
-\addcontentsline{toc}{chapter}{\listfigurename} % Füge das Verzeichnis der Abbildungen zum Inhaltsverzeichnis hinzu
-\addcontentsline{toc}{chapter}{\listtablename} % Füge das Verzeichnis der Abbildungen zum Inhaltsverzeichnis hinzu
-```
 # Abstract {.unnumbered}
 
 Ab Kapitel @sec-quarto beginnt der Inhalt.

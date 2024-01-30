@@ -6,6 +6,12 @@
   11pt,
 ]{scrbook}
 
+% ##############################################
+% ### default above, addet expression below ###
+% ##############################################
+
+\usepackage[nottoc]{tocbibind}  % Package to include lists in ToC, excluding ToC itself
+
 \usepackage{amsmath,amssymb}
 \usepackage{setspace}
 \usepackage{iftex}
@@ -193,7 +199,7 @@
 \makeatother
 \subtitle{Untertitel}
 \author{Max Mustermann \and Maria Musterfrau}
-\date{2024-01-29}
+\date{2024-01-30}
 
 \begin{document}
   \begin{frontmatter}
@@ -304,7 +310,7 @@
   \end{titlepage}
   \end{frontmatter}
 
-  \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, enhanced, boxrule=0pt, frame hidden, interior hidden, borderline west={3pt}{0pt}{shadecolor}, breakable]}{\end{tcolorbox}}\fi
+  \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, boxrule=0pt, enhanced, sharp corners, borderline west={3pt}{0pt}{shadecolor}, breakable, interior hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Inhaltsverzeichnis}
 {
@@ -315,9 +321,6 @@
 \listoftables
 \setstretch{1.5}
 \mainmatter
-\addcontentsline{toc}{chapter}{\listfigurename} % Füge das Verzeichnis der Abbildungen zum Inhaltsverzeichnis hinzu
-\addcontentsline{toc}{chapter}{\listtablename} % Füge das Verzeichnis der Abbildungen zum Inhaltsverzeichnis hinzu
-
 \hypertarget{abstract}{%
 \chapter*{Abstract}\label{abstract}}
 \addcontentsline{toc}{chapter}{Abstract}
